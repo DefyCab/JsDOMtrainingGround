@@ -43,6 +43,15 @@ function addListInMain2(numberOfListItems) {
 addListInMain(10)
 addListInMain2(items)
 
+function removeDivById(id) {
+  const divToRemove = document.querySelector("div#" + id)
+  if (divToRemove != undefined) {
+    divToRemove.remove()
+  }
+}
+
+removeDivById("fake")
+
 const companyName = getCompanyName("Salt")
 const companyName2 = getCompanyName("S A L T")
 
