@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS - JS</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+ document.addEventListener("DOMContentLoaded", () => {
+    console.log("Document is loaded, y'all");
+    addResultStyling();
+  });
+
+      function addStyleBasedOfContent(element, content) {
+    const convertedNumber = Number(content);
+  
+    if (Number.isNaN(convertedNumber)) {
+      // return stoppar funktionen
+      return;
+    }
+    if (convertedNumber < 0) {
+      element.classList.add("negativeResult");
+      return;
+    }
+    element.classList.add("positiveResult");
+  }
+
+  function addResultStyling() {
+    const mainResultElements = document.querySelectorAll(".mainResult");
+  
+    for (let i = 0; i < mainResultElements.length; i++) {
+      const content = mainResultElements[i].textContent;
+  
+      addStyleBasedOfContent(mainResultElements[i], content);
+    }
+  }
+    </script>
   </head>
   <body>
     <main>
@@ -12,6 +42,6 @@
       <h1 class="mainResult">-1000</h1>
       <h1 class="mainResult">A name - not a number</h1>
     </main>
-    <script src="script.js"> </script>
+    <!-- <script src="script.js"> </script> -->
   </body>
 </html>

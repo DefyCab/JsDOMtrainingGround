@@ -41,4 +41,9 @@ function addStyleBasedOfContent(element, content) {
     }
   }
 
-addResultStyling()
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Document is loaded, y'all");
+    // addResultStyling();
+  });
+
+// addResultStyling()
