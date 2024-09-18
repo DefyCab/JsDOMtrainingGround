@@ -12,7 +12,6 @@ const items = ["Love", "Erik", "Sven"]
 
 function addListInMain(numberOfListItems) {
   const ulElement = document.createElement("ul")
-  console.log(ulElement)
 
   for (let i = 0; i < numberOfListItems; i++) {
     const liItem = document.createElement("li")
@@ -27,7 +26,22 @@ function addListInMain(numberOfListItems) {
   main.appendChild(ulElement)
 }
 
+function addListInMain2(numberOfListItems) {
+  const ulElement = document.createElement("ul")
+
+  for (let i = 0; i < numberOfListItems.length; i++) {
+    const liItem = document.createElement("li")
+    liItem.textContent = `Name: ${numberOfListItems[i]}`
+
+    ulElement.appendChild(liItem)
+  }
+
+  const main = document.querySelector(".main")
+  main.appendChild(ulElement)
+}
+
 addListInMain(10)
+addListInMain2(items)
 
 const companyName = getCompanyName("Salt")
 const companyName2 = getCompanyName("S A L T")
