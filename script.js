@@ -17,6 +17,8 @@
 
 // checkIfNegative(divs)
 
+// if (element.classList.contains("negativeResult")
+
 function addStyleBasedOfContent(element, content) {
     const convertedNumber = Number(content);
   
@@ -41,9 +43,9 @@ function addStyleBasedOfContent(element, content) {
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("Document is loaded, y'all");
-    // addResultStyling();
-  });
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   console.log("Document is loaded, y'all");
+  //   // addResultStyling();
+  // });
 
-// addResultStyling()
+addResultStyling()
