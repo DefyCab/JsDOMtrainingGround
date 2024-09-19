@@ -1,27 +1,11 @@
-// const divs = document.querySelectorAll(".mainResult")
-
-// function checkIfNegative(nodelist) {
-//   for (let i = 0; i < nodelist.length; i++) {
-//     if (Number(nodelist[i].textContent) < 0) {
-//       nodelist[i].classList.remove("mainResult")
-//       nodelist[i].classList.add("negativeResult")
-//     } else if (Number(nodelist[i].textContent) > 0) {
-//       nodelist[i].classList.remove("mainResult")
-//       nodelist[i].classList.add("positiveResult")
-//     } else {
-//       nodelist[i].classList.remove("mainResult")
-//       nodelist[i].classList.add("notANumber")
-//     }
-//   }
-// }
-
-// checkIfNegative(divs)
-
-// if (element.classList.contains("negativeResult")
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Document is loaded, y'all");
+    addResultStyling();
+  });
 
 function addStyleBasedOfContent(element, content) {
     const convertedNumber = Number(content);
-  
+    
     if (Number.isNaN(convertedNumber)) {
       // return stoppar funktionen
       return;
@@ -32,20 +16,34 @@ function addStyleBasedOfContent(element, content) {
     }
     element.classList.add("positiveResult");
   }
-
+  
   function addResultStyling() {
     const mainResultElements = document.querySelectorAll(".mainResult");
-  
+    
     for (let i = 0; i < mainResultElements.length; i++) {
       const content = mainResultElements[i].textContent;
   
       addStyleBasedOfContent(mainResultElements[i], content);
     }
   }
-
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   console.log("Document is loaded, y'all");
-  //   // addResultStyling();
-  // });
-
-addResultStyling()
+  
+  function invertColorsOfResults() {
+    const mainResultElements = document.querySelectorAll(".mainResult");
+  
+    for (let i = 0; i < mainResultElements.length; i++) {
+      const element = mainResultElements[i];
+      console.log(element.textContent);
+  
+      if (element.classList.contains("positiveResult")) {
+        element.classList.remove("positiveResult");
+        element.classList.add("negativeResult");
+        continue;
+      }
+  
+      if (element.classList.contains("negativeResult")) {
+        element.classList.remove("negativeResult");
+        element.classList.add("positiveResult");
+        continue;
+      }
+    }
+  }
