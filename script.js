@@ -8,6 +8,39 @@ btn.addEventListener("click", () => {
   invertColorsOfResults()
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+  getUsers()
+})
+
+function getUsers() {
+  fetch("https://randomuser.me/api/?gender=female&results=30")
+    .then((response) => response.json())
+    .then((data) => {
+      debugger
+      const result = data.results
+
+      const ulElement = document.createElement("ul")
+      const main = document.querySelector("main")
+      main.appendChild(ulElement)
+
+      for (let i = 0; i < result.length; i++) {
+        const liItem = document.createElement("li")
+        liItem.textContent = `${result[i].name.first}`
+
+        ulElement.appendChild(liItem)
+      }
+    })
+}
+
+// Alternative ways of event listeners
+
+// const btn = document.getElementById("btnInversion")
+// btn.onclick = () => {
+//   invertColorsOfResults()
+// }
+
+// console.log(btn.onclick = invertColorsOfResults)
+
 function addStyleBasedOfContent(element, content) {
   const convertedNumber = Number(content)
 
@@ -52,4 +85,3 @@ function invertColorsOfResults() {
     }
   }
 }
-
