@@ -1,9 +1,12 @@
-function getUsers() {
+function getUsers(element) {
   fetch("https://randomuser.me/api/?gender=female&results=30")
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      element.textContent = data.results.length
+    })
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  getUsers()
+  const mainElement = document.querySelector("main")
+  getUsers(mainElement)
 })
